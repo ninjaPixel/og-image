@@ -2,17 +2,19 @@ import {marked} from 'marked';
 import {sanitizeHtml} from './sanitizer';
 import {ParsedRequest} from './types';
 import {reset, variables} from "./css";
-// import {readFileSync} from 'fs';
-// const barlow = readFileSync(`${__dirname}/../_fonts/Barlow_Condensed/BarlowCondensed-Regular.ttf`).toString('base64');
+import {readFileSync} from 'fs';
+// const barlow = readFileSync(`${__dirname}/../_fonts/Barlow_Condensed/BarlowCondensed-SemiBold.ttf`).toString('base64');
+const barlow = readFileSync(`${__dirname}/../_fonts/BarlowCondensed-Bold.woff2`).toString('base64');
 
-//
-// const x= `
-// @font-face {
-//     font-family: 'Barlow Condensed';
-//     font-style:  normal;
-//     font-weight: normal;
-//     src: url(data:font/ttf;charset=utf-8;base64,${barlow}) format('ttf');
-// }`
+
+const fontDeclaration = `
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style:  normal;
+    font-weight: bold;
+    src: url(data:font/woff2;charset=utf-8;base64,${barlow}) format('woff2');
+}`;
+
 const twemoji = require('twemoji');
 const twOptions = {folder: 'svg', ext: '.svg'};
 const emojify = (text: string) => twemoji.parse(text, twOptions);
@@ -21,14 +23,14 @@ const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 function getCss(fontSize='var(--s4)') {
     return `
+${fontDeclaration}
 
 ${reset}
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap");
-
-    
 html {  
+
 ${variables}
+
 padding: var(--s2);
 }
 
@@ -110,7 +112,7 @@ padding: var(--s2);
 .contentRootText  h2 {
   font-family: var(--font-special);
   font-size: ${fontSize};
-  font-weight: 700;
+  font-weight: bold;
 }
     
     `;
