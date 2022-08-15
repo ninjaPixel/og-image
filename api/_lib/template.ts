@@ -8,7 +8,7 @@ const twOptions = {folder: 'svg', ext: '.svg'};
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 
-function getCss(theme: string, fontSize='var(--s4)') {
+function getCss(fontSize='var(--s4)') {
     return `
 
 ${reset}
@@ -102,14 +102,14 @@ padding: var(--s2);
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const {text, theme, md, fontSize} = parsedReq;
+    const {text,  md, fontSize} = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss( fontSize)}
     </style>
     <body>
         <div>
@@ -132,16 +132,16 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width = 'auto', height = '225') {
-    return `<img
-        class="logo"
-        alt="Generated Image"
-        src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
-    />`
-}
-
-function getPlusSign(i: number) {
-    return i === 0 ? '' : '<div class="plus">+</div>';
-}
+// function getImage(src: string, width = 'auto', height = '225') {
+//     return `<img
+//         class="logo"
+//         alt="Generated Image"
+//         src="${sanitizeHtml(src)}"
+//         width="${sanitizeHtml(width)}"
+//         height="${sanitizeHtml(height)}"
+//     />`
+// }
+//
+// function getPlusSign(i: number) {
+//     return i === 0 ? '' : '<div class="plus">+</div>';
+// }
