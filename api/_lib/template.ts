@@ -3,7 +3,6 @@ import {sanitizeHtml} from './sanitizer';
 import {ParsedRequest} from './types';
 import {reset, variables} from "./css";
 import {readFileSync} from 'fs';
-// const barlow = readFileSync(`${__dirname}/../_fonts/Barlow_Condensed/BarlowCondensed-SemiBold.ttf`).toString('base64');
 const barlow = readFileSync(`${__dirname}/../_fonts/BarlowCondensed-Bold.woff2`).toString('base64');
 
 
