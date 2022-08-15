@@ -5,3 +5,4 @@ api/dist
 public/dist
 
 .idea
+/.env
