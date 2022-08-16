@@ -1,4 +1,3 @@
-import {marked} from 'marked';
 import {sanitizeHtml} from './sanitizer';
 import {ParsedRequest} from './types';
 import {reset, variables} from "./css";
@@ -94,7 +93,6 @@ padding: var(--s2);
 .contentRoot {
     border: var(--border-thick);
     z-index: 10;
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -118,7 +116,7 @@ padding: var(--s2);
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const {text,  md, fontSize} = parsedReq;
+    const {text, fontSize} = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -135,7 +133,7 @@ export function getHtml(parsedReq: ParsedRequest) {
                 <div class="square80 contentRoot">
                     <div class="contentRootText">
                         <h2>${emojify(
-                                md ? marked(text) : sanitizeHtml(text)
+                                 sanitizeHtml(text)
                             )}</h2>
                         </>
         

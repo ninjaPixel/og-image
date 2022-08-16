@@ -97,7 +97,7 @@ export const variables =`
           due to the way that the browser will render the contents.
           See https://johnresig.com/blog/sub-pixel-problems-in-css/
          */
-        --border-thick: 6px solid var(--color-dark);
+        --border-thick: 12px solid var(--color-dark);
         line-height: var(--line-height);
         font-family: var(--font-plain);
         background-color: var(--color-light);
