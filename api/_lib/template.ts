@@ -110,6 +110,7 @@ padding: var(--s2);
   font-family: var(--font-special);
   font-size: ${fontSize};
   font-weight: bold;
+  line-height:1.1;
 }
     
     `;
