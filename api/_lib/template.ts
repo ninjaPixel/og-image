@@ -103,7 +103,7 @@ padding: var(--s2);
     top:var(--s1);
 }
 .contentRootText {
-  padding: var(--s-2);
+  padding: 0 var(--s1);
 }
 
 .contentRootText  h2 {
